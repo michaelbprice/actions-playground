@@ -1,0 +1,17 @@
+name: 'Input Strings'
+description: 'Process strings and make them available to the rest of the workflow'
+inputs:
+  json-input:
+    description: 'JSON formatted data for the strings to process'
+    required: true
+    default: '[]'
+outputs:
+  example:
+    description: "Bogus"
+    value: "Bogus man"
+runs:
+  using: "composite"
+  steps:
+    - run: echo ${{ fromJSON(inputs.json-input) }}
+      shell: bash
+  
