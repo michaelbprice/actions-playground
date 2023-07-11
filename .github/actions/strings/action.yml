@@ -6,12 +6,13 @@ inputs:
     required: true
     default: '[]'
 outputs:
-  example:
-    description: "Bogus"
-    value: "Bogus man"
+  name:
+    description: "Name"
+    value: ${{ fromJSON("['build-dir': 'some/build/dir', 'other-output': 'other']") }}
 runs:
   using: "composite"
   steps:
-    - run: echo "${{ toJSON(fromJSON(inputs.json-input)) }}"
+    - id: examine
+      run: echo "${{ toJSON(fromJSON(inputs.json-input)) }}"
       shell: bash
   
