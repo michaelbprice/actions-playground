@@ -24,3 +24,17 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      -uses: .github/actions/string.yml
+       name: Test action
+       with:
+         json-input: |
+         [
+           { "build-dir": "${{ github.workspace }}/build",
+             "kind": "path" },
+           { "name": "Michael" }
+         ]
+         
+
+         
+      
