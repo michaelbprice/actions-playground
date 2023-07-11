@@ -10,6 +10,8 @@ on:
 
 jobs:
   build:
+    name: Test
+
     steps:
     
       - uses: actions/checkout@v3
@@ -25,12 +27,7 @@ jobs:
       -uses: .github/actions/string.yml
        name: Test action
        with:
-         json-input: |
-         [
-           { "build-dir": "${{ github.workspace }}/build",
-             "kind": "path" },
-           { "name": "Michael" }
-         ]
+         json-input: [ { "build-dir": "${{ github.workspace }}/build", "kind": "path" }, { "name": "Michael" } ]
          
 
          
