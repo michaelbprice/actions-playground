@@ -12,6 +12,6 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: echo ${{ fromJSON(inputs.json-input) }}
+    - run: echo ${{ toJSON(fromJSON(inputs.json-input)) }}
       shell: bash
   
